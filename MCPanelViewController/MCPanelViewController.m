@@ -463,6 +463,7 @@ const static NSString *MCPanelViewGestureAnimationDirectionKey = @"MCPanelViewGe
 
 			if (ratio < threshold) {
 				[self dismiss];
+                ratio = 0;
 			}
 			else {
 				__weak typeof(self) weakSelf = self;
@@ -472,6 +473,7 @@ const static NSString *MCPanelViewGestureAnimationDirectionKey = @"MCPanelViewGe
 				    [strongSelf layoutSubviewsToWidth:strongSelf.maxWidth];
 				} completion: ^(BOOL finished) {
 				}];
+                ratio = 1;
 			}
 			break;
 		}
@@ -479,14 +481,22 @@ const static NSString *MCPanelViewGestureAnimationDirectionKey = @"MCPanelViewGe
 		default:
 			break;
 	}
-
+    CGPoint velocity = [pan velocityInView:self.view];
+    if (velocity.x < 0)
+    {
+        direction = MCPanelAnimationDirectionLeft;
+    }
+    else
+    {
+        direction = MCPanelAnimationDirectionRight;
+    }
     if (direction != self.direction)
     {
         [self viewIsAppearingWithProgress:ratio];
     }
     else
     {
-        [self viewIsDisappearingWithProgress:ratio];
+        [self viewIsDisappearingWithProgress:1 - ratio];
     }
 }
 
