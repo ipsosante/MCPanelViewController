@@ -150,40 +150,24 @@ const static NSString *MCPanelViewGestureAnimationDirectionKey = @"MCPanelViewGe
 
 - (void)layoutSubviewsToWidth:(CGFloat)width {
 	CGRect bounds = self.parentViewController.view.bounds;
-	if (width > self.maxWidth) {
-		CGFloat offset = 0;
-		CGFloat shadowOffset = width - self.maxWidth;
+    width = MIN(width, self.maxWidth);
 
-		if (self.direction == MCPanelAnimationDirectionLeft) {
-		}
-		else {
-			offset = CGRectGetWidth(bounds) - width;
-			shadowOffset = offset;
-		}
+    CGFloat offset = 0;
+    CGRect frame = CGRectZero;
+    if (self.direction == MCPanelAnimationDirectionLeft) {
+        frame = CGRectMake(width - self.maxWidth, 0, self.maxWidth, self.maxHeight);
+    }
+    else {
+        offset = CGRectGetWidth(bounds) - width;
+        frame = CGRectMake(CGRectGetWidth(bounds) - width, 0, self.maxWidth, self.maxHeight);
+    }
 
-		self.backgroundButton.alpha = 1;
-		self.imageViewContainer.frame = CGRectMake(offset, 0, width, self.maxHeight);
-		self.imageView.frame = CGRectMake(_direction == MCPanelAnimationDirectionLeft ? 0 : _imageViewContainer.bounds.size.width - bounds.size.width, 0,                                   self.imageView.image.size.width * MCPanelViewUndersampling, self.imageView.image.size.height * MCPanelViewUndersampling);
-		self.shadowView.frame = CGRectMake(shadowOffset, 0, width, self.maxHeight);
-		self.rootViewController.view.frame = CGRectMake(offset, 0, width, self.maxHeight);
-	}
-	else {
-		CGFloat offset = 0;
-		CGRect frame = CGRectZero;
-		if (self.direction == MCPanelAnimationDirectionLeft) {
-			frame = CGRectMake(width - self.maxWidth, 0, self.maxWidth, self.maxHeight);
-		}
-		else {
-			offset = CGRectGetWidth(bounds) - width;
-			frame = CGRectMake(CGRectGetWidth(bounds) - width, 0, self.maxWidth, self.maxHeight);
-		}
+    self.backgroundButton.alpha = width / self.maxWidth;
+    self.imageViewContainer.frame = CGRectMake(offset, 0, width, self.maxHeight);
+    self.imageView.frame = CGRectMake(_direction == MCPanelAnimationDirectionLeft ? 0 : _imageViewContainer.bounds.size.width - bounds.size.width, 0, self.imageView.image.size.width * MCPanelViewUndersampling, self.imageView.image.size.height * MCPanelViewUndersampling);
+    self.shadowView.frame = frame;
+    self.rootViewController.view.frame = frame;
 
-		self.backgroundButton.alpha = width / self.maxWidth;
-		self.imageViewContainer.frame = CGRectMake(offset, 0, width, self.maxHeight);
-		self.imageView.frame = CGRectMake(_direction == MCPanelAnimationDirectionLeft ? 0 : _imageViewContainer.bounds.size.width - bounds.size.width, 0, self.imageView.image.size.width * MCPanelViewUndersampling, self.imageView.image.size.height * MCPanelViewUndersampling);
-		self.shadowView.frame = frame;
-		self.rootViewController.view.frame = frame;
-	}
 }
 
 - (void)viewIsAppearingWithProgress:(CGFloat)progress
