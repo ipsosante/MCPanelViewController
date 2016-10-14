@@ -172,6 +172,7 @@ const static NSString *MCPanelViewGestureAnimationDirectionKey = @"MCPanelViewGe
 
 - (void)viewIsAppearingWithProgress:(CGFloat)progress
 {
+    progress = MIN(MAX(0, progress), 1);
     if ([self.rootViewController respondsToSelector:@selector(viewIsAppearingWithProgress:)])
     {
         [self.rootViewController performSelector:@selector(viewIsAppearingWithProgress:) withObject:@(progress)];
@@ -180,6 +181,7 @@ const static NSString *MCPanelViewGestureAnimationDirectionKey = @"MCPanelViewGe
 
 - (void)viewIsDisappearingWithProgress:(CGFloat)progress
 {
+    progress = MIN(MAX(0, progress), 1);
     if ([self.rootViewController respondsToSelector:@selector(viewIsDisappearingWithProgress:)])
     {
         [self.rootViewController performSelector:@selector(viewIsDisappearingWithProgress:) withObject:@(progress)];
