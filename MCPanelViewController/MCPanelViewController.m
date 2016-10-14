@@ -186,6 +186,22 @@ const static NSString *MCPanelViewGestureAnimationDirectionKey = @"MCPanelViewGe
 	}
 }
 
+- (void)viewIsAppearingWithProgress:(CGFloat)progress
+{
+    if ([self.rootViewController respondsToSelector:@selector(viewIsAppearingWithProgress:)])
+    {
+        [self.rootViewController performSelector:@selector(viewIsAppearingWithProgress:) withObject:@(progress)];
+    }
+}
+
+- (void)viewIsDisappearingWithProgress:(CGFloat)progress
+{
+    if ([self.rootViewController respondsToSelector:@selector(viewIsDisappearingWithProgress:)])
+    {
+        [self.rootViewController performSelector:@selector(viewIsDisappearingWithProgress:) withObject:@(progress)];
+    }
+}
+
 - (void)setupController:(UIViewController *)controller withDirection:(MCPanelAnimationDirection)direction {
 	self.direction = direction;
 
@@ -401,6 +417,7 @@ const static NSString *MCPanelViewGestureAnimationDirectionKey = @"MCPanelViewGe
 
 - (void)handlePan:(UIPanGestureRecognizer *)pan {
 	// initialization for screen edge pan gesture
+    MCPanelAnimationDirection direction = [objc_getAssociatedObject(pan, &MCPanelViewGestureAnimationDirectionKey) integerValue];
 	if ([pan isKindOfClass:[UIScreenEdgePanGestureRecognizer class]] &&
 	    pan.state == UIGestureRecognizerStateBegan) {
 		__weak UIViewController *controller = objc_getAssociatedObject(pan, &MCPanelViewGesturePresentingViewControllerKey);
@@ -409,7 +426,6 @@ const static NSString *MCPanelViewGestureAnimationDirectionKey = @"MCPanelViewGe
 			return;
 		}
 
-		MCPanelAnimationDirection direction = [objc_getAssociatedObject(pan, &MCPanelViewGestureAnimationDirectionKey) integerValue];
 		[self setupController:controller withDirection:direction];
 
 		CGPoint translation = [pan translationInView:pan.view];
@@ -477,6 +493,15 @@ const static NSString *MCPanelViewGestureAnimationDirectionKey = @"MCPanelViewGe
 		default:
 			break;
 	}
+
+    if (direction != self.direction)
+    {
+        [self viewIsAppearingWithProgress:ratio];
+    }
+    else
+    {
+        [self viewIsDisappearingWithProgress:ratio];
+    }
 }
 
 - (UIScreenEdgePanGestureRecognizer *)gestureRecognizerForScreenEdgeGestureInViewController:(UIViewController *)controller withDirection:(MCPanelAnimationDirection)direction {

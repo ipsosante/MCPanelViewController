@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5E05E634A54A4C889063C00B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0E7032490ED4BF39CF716DB /* libPods.a */; };
+		5CCBAB5EB7ABC43B85C7C2DB /* libPods-MCPanelViewControllerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0A60A280B8C8F78433108CD /* libPods-MCPanelViewControllerDemo.a */; };
 		9EC4F73519AB70F40016FE7F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC4F73419AB70F40016FE7F /* Foundation.framework */; };
 		9EC4F73719AB70F40016FE7F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC4F73619AB70F40016FE7F /* CoreGraphics.framework */; };
 		9EC4F73919AB70F40016FE7F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC4F73819AB70F40016FE7F /* UIKit.framework */; };
@@ -38,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		73BEAA3251DBF8831A8507A2 /* Pods-MCPanelViewControllerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCPanelViewControllerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCPanelViewControllerDemo/Pods-MCPanelViewControllerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		9EC4F73119AB70F40016FE7F /* MCPanelViewControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCPanelViewControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EC4F73419AB70F40016FE7F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9EC4F73619AB70F40016FE7F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,8 +62,8 @@
 		9EC4F77019AB71380016FE7F /* MCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCViewController.m; sourceTree = "<group>"; };
 		9EC4F77119AB71380016FE7F /* LightPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightPanelViewController.h; sourceTree = "<group>"; };
 		9EC4F77219AB71380016FE7F /* LightPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightPanelViewController.m; sourceTree = "<group>"; };
-		BA25FE919B7B41A6B3912E0E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		F0E7032490ED4BF39CF716DB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB691C0C27E4347436A66E39 /* Pods-MCPanelViewControllerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCPanelViewControllerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCPanelViewControllerDemo/Pods-MCPanelViewControllerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		F0A60A280B8C8F78433108CD /* libPods-MCPanelViewControllerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MCPanelViewControllerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +74,7 @@
 				9EC4F73719AB70F40016FE7F /* CoreGraphics.framework in Frameworks */,
 				9EC4F73919AB70F40016FE7F /* UIKit.framework in Frameworks */,
 				9EC4F73519AB70F40016FE7F /* Foundation.framework in Frameworks */,
-				5E05E634A54A4C889063C00B /* libPods.a in Frameworks */,
+				5CCBAB5EB7ABC43B85C7C2DB /* libPods-MCPanelViewControllerDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		266B3262BF592A4C7D43B2DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AB691C0C27E4347436A66E39 /* Pods-MCPanelViewControllerDemo.debug.xcconfig */,
+				73BEAA3251DBF8831A8507A2 /* Pods-MCPanelViewControllerDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9EC4F72819AB70F40016FE7F = {
 			isa = PBXGroup;
 			children = (
@@ -97,7 +107,7 @@
 				9EC4F75919AB70F40016FE7F /* MCPanelViewControllerDemoTests */,
 				9EC4F73319AB70F40016FE7F /* Frameworks */,
 				9EC4F73219AB70F40016FE7F /* Products */,
-				BA25FE919B7B41A6B3912E0E /* Pods.xcconfig */,
+				266B3262BF592A4C7D43B2DA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,7 +127,7 @@
 				9EC4F73619AB70F40016FE7F /* CoreGraphics.framework */,
 				9EC4F73819AB70F40016FE7F /* UIKit.framework */,
 				9EC4F75319AB70F40016FE7F /* XCTest.framework */,
-				F0E7032490ED4BF39CF716DB /* libPods.a */,
+				F0A60A280B8C8F78433108CD /* libPods-MCPanelViewControllerDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -176,11 +186,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9EC4F76319AB70F40016FE7F /* Build configuration list for PBXNativeTarget "MCPanelViewControllerDemo" */;
 			buildPhases = (
-				C6038912A7EB4B13B7708678 /* Check Pods Manifest.lock */,
+				67B691FBBE31BFA06736AB93 /* [CP] Check Pods Manifest.lock */,
 				9EC4F72D19AB70F40016FE7F /* Sources */,
 				9EC4F72E19AB70F40016FE7F /* Frameworks */,
 				9EC4F72F19AB70F40016FE7F /* Resources */,
-				B4EAD8C437B3454CB6DECE4C /* Copy Pods Resources */,
+				0B86E6983338A144A4E77979 /* [CP] Embed Pods Frameworks */,
+				88AA458F64380E8B9A9380E9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -215,9 +226,12 @@
 		9EC4F72919AB70F40016FE7F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Matthew Cheok";
 				TargetAttributes = {
+					9EC4F73019AB70F40016FE7F = {
+						DevelopmentTeam = JAE2Z2NT57;
+					};
 					9EC4F75119AB70F40016FE7F = {
 						TestTargetID = 9EC4F73019AB70F40016FE7F;
 					};
@@ -266,34 +280,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B4EAD8C437B3454CB6DECE4C /* Copy Pods Resources */ = {
+		0B86E6983338A144A4E77979 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MCPanelViewControllerDemo/Pods-MCPanelViewControllerDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C6038912A7EB4B13B7708678 /* Check Pods Manifest.lock */ = {
+		67B691FBBE31BFA06736AB93 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		88AA458F64380E8B9A9380E9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MCPanelViewControllerDemo/Pods-MCPanelViewControllerDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -361,13 +390,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -380,7 +415,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -399,20 +434,25 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -420,14 +460,16 @@
 		};
 		9EC4F76419AB70F40016FE7F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA25FE919B7B41A6B3912E0E /* Pods.xcconfig */;
+			baseConfigurationReference = AB691C0C27E4347436A66E39 /* Pods-MCPanelViewControllerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = JAE2Z2NT57;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCPanelViewControllerDemo/MCPanelViewControllerDemo-Prefix.pch";
 				INFOPLIST_FILE = "MCPanelViewControllerDemo/MCPanelViewControllerDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.matthewcheok.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
@@ -436,14 +478,16 @@
 		};
 		9EC4F76519AB70F40016FE7F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA25FE919B7B41A6B3912E0E /* Pods.xcconfig */;
+			baseConfigurationReference = 73BEAA3251DBF8831A8507A2 /* Pods-MCPanelViewControllerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = JAE2Z2NT57;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCPanelViewControllerDemo/MCPanelViewControllerDemo-Prefix.pch";
 				INFOPLIST_FILE = "MCPanelViewControllerDemo/MCPanelViewControllerDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.matthewcheok.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
@@ -466,6 +510,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "MCPanelViewControllerDemoTests/MCPanelViewControllerDemoTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.matthewcheok.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -484,6 +529,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCPanelViewControllerDemo/MCPanelViewControllerDemo-Prefix.pch";
 				INFOPLIST_FILE = "MCPanelViewControllerDemoTests/MCPanelViewControllerDemoTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.matthewcheok.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

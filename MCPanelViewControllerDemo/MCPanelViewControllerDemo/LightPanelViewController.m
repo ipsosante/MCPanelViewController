@@ -32,6 +32,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewIsAppearingWithProgress:(CGFloat)progress
+{
+    NSLog(@"Appearing: %f", progress);
+}
+
+- (void)viewIsDisappearingWithProgress:(CGFloat)progress
+{
+    NSLog(@"Disapearing: %f", progress);
+}
+
 #pragma mark - Table view data source
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
