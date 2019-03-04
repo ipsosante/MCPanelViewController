@@ -7,12 +7,12 @@
 //
 
 #import "MCPanelViewController.h"
+
 #import "MCPanGestureRecognizer.h"
+#import "MCScreenEdgePanGestureRecognizer.h"
 
 #import "UIImage+ImageEffects.h"
 #import "UIView+MCAdditions.h"
-
-#import <objc/runtime.h>
 
 // constants
 const static CGFloat MCPanelViewAnimationDuration = 0.3;
@@ -410,12 +410,13 @@ const static NSString *MCPanelViewGestureAnimationDirectionKey = @"MCPanelViewGe
     return YES;
 }
 
-- (void)handlePan:(UIPanGestureRecognizer *)pan {
+- (void)handlePan:(UIPanGestureRecognizer<MCPanGestureRecognizerWithDirection> *)pan {
     // initialization for screen edge pan gesture
-    MCPanelAnimationDirection direction = [objc_getAssociatedObject(pan, &MCPanelViewGestureAnimationDirectionKey) integerValue];
-    if ([pan isKindOfClass:[UIScreenEdgePanGestureRecognizer class]] &&
+    MCPanelAnimationDirection direction = pan.direction;
+    if ([pan isKindOfClass:[MCScreenEdgePanGestureRecognizer class]] &&
         pan.state == UIGestureRecognizerStateBegan) {
-        __weak UIViewController *controller = objc_getAssociatedObject(pan, &MCPanelViewGesturePresentingViewControllerKey);
+        MCScreenEdgePanGestureRecognizer *edgePanGestureRecognizer = (MCScreenEdgePanGestureRecognizer *)pan;
+        __weak UIViewController *controller = edgePanGestureRecognizer.presentingViewController;
 
         if (!controller) {
             return;
@@ -510,26 +511,20 @@ const static NSString *MCPanelViewGestureAnimationDirectionKey = @"MCPanelViewGe
 }
 
 - (UIScreenEdgePanGestureRecognizer *)gestureRecognizerForScreenEdgeGestureInViewController:(UIViewController *)controller withDirection:(MCPanelAnimationDirection)direction {
-    UIScreenEdgePanGestureRecognizer *pan = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+    MCScreenEdgePanGestureRecognizer *pan = [[MCScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
     pan.edges = direction == MCPanelAnimationDirectionLeft ? UIRectEdgeLeft : UIRectEdgeRight;
 
-    objc_setAssociatedObject(pan, &MCPanelViewGesturePresentingViewControllerKey,
-                             controller, OBJC_ASSOCIATION_RETAIN);
-    objc_setAssociatedObject(pan, &MCPanelViewGesturePresentedViewControllerKey,
-                             self, OBJC_ASSOCIATION_RETAIN);
-    objc_setAssociatedObject(pan, &MCPanelViewGestureAnimationDirectionKey,
-                             @(direction), OBJC_ASSOCIATION_RETAIN);
+    pan.presentingViewController = controller;
+    pan.presentedViewController = self;
+    pan.direction = direction;
 
     return pan;
 }
 
 - (void)removeGestureRecognizersForScreenEdgeGestureFromView:(UIView *)view {
     for (UIGestureRecognizer *recognizer in view.gestureRecognizers) {
-        if ([recognizer isKindOfClass:[UIScreenEdgePanGestureRecognizer class]]) {
-            __weak UIViewController *controller = objc_getAssociatedObject(recognizer, &MCPanelViewGesturePresentedViewControllerKey);
-            if (controller == self) {
-                [view removeGestureRecognizer:recognizer];
-            }
+        if ([recognizer isKindOfClass:[MCScreenEdgePanGestureRecognizer class]]) {
+            [view removeGestureRecognizer:recognizer];
         }
     }
 }
@@ -554,10 +549,10 @@ const static NSString *MCPanelViewGestureAnimationDirectionKey = @"MCPanelViewGe
     [controller presentInViewController:self withDirection:direction];
 }
 
-- (void)addGestureRecognizerToViewForScreenEdgeGestureWithPanelViewController:(MCPanelViewController *)controller withDirection:(MCPanelAnimationDirection)direction {
-    UIScreenEdgePanGestureRecognizer *pan = [controller gestureRecognizerForScreenEdgeGestureInViewController:self withDirection:direction];
+- (void)addGestureRecognizerToViewForScreenEdgeGestureWithPanelViewController:(MCPanelViewController *)controller presentedBy:(UIViewController *)presentingViewController withDirection:(MCPanelAnimationDirection)direction {
+    UIScreenEdgePanGestureRecognizer *pan = [controller gestureRecognizerForScreenEdgeGestureInViewController:presentingViewController withDirection:direction];
     [self.view addGestureRecognizer:pan];
-    
+
     NSArray *scrollViews = [self.view subviewsOfKindOfClass:[UIScrollView class]];
     for (UIScrollView *scrollView in scrollViews) {
         [scrollView.panGestureRecognizer requireGestureRecognizerToFail:pan];
